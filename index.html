@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveClub RP - Coming Soon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Oswald:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="overlay"></div>
+    
+    <header>
+        <h1 class="glitch" data-text="DRIVECLUB RP">DRIVECLUB RP</h1>
+        <div class="status">UNDER CONSTRUCTION</div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="content-wrapper">
+                <h2>THE STREETS ARE CALLING</h2>
+                <p class="hype-text">PREPARE FOR THE ULTIMATE FIVEM EXPERIENCE</p>
+                
+                <div id="countdown-container">
+                    <div class="time-unit">
+                        <span id="days">00</span>
+                        <label>DAYS</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="hours">00</span>
+                        <label>HOURS</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <label>MINS</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <label>SECS</label>
+                    </div>
+                </div>
+
+                <div class="launch-date">
+                    LAUNCHING FEBRUARY 1ST
+                </div>
+            </div>
+
+            <div class="scroll-indicator" onclick="document.getElementById('gallery').scrollIntoView({behavior: 'smooth'})">
+                <span>SNEAK PEEK</span>
+                <i class="fas fa-chevron-down bounce"></i>
+            </div>
+        </section>
+
+        <section id="gallery" class="gallery-section">
+            <h2>SERVER PREVIEW</h2>
+            <div class="gallery-container">
+                <div class="main-preview">
+                    <div class="placeholder-image" id="main-display">
+                        <span>SELECT AN IMAGE</span>
+                    </div>
+                </div>
+                <div class="thumbnails">
+                    <!-- Placeholders for screenshots -->
+                    <div class="thumb active" onclick="changeImage(this, 'preview1')">
+                        <div class="thumb-content">HUD</div>
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'preview2')">
+                        <div class="thumb-content">CARS</div>
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'preview3')">
+                        <div class="thumb-content">JOBS</div>
+                    </div>
+                    <div class="thumb" onclick="changeImage(this, 'preview4')">
+                        <div class="thumb-content">MAP</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="socials">
+            <a href="#" class="social-link"><i class="fab fa-discord"></i> JOIN DISCORD</a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i> TWITTER</a>
+        </div>
+        <p>&copy; 2026 DriveClub RP. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
