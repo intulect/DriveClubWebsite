@@ -1,6 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { FaDiscord } from 'react-icons/fa';
 
+const TimeUnit = ({ value, label }: { value: number; label: string }) => (
+  <div className="flex flex-col items-center">
+    <div className="bg-bgDark/50 backdrop-blur-sm border border-white/10 p-4 md:p-6 rounded-lg min-w-[80px] md:min-w-[120px] mb-2 shadow-lg">
+      <span className="font-heading text-3xl md:text-6xl bg-gradient-to-b from-white to-primaryBlue bg-clip-text text-transparent leading-none">
+        {value < 10 ? `0${value}` : value}
+      </span>
+    </div>
+    <span className="text-textMuted text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
+      {label}
+    </span>
+  </div>
+);
+
 const Countdown: React.FC = () => {
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -31,19 +44,6 @@ const Countdown: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const TimeUnit = ({ value, label }: { value: number; label: string }) => (
-    <div className="flex flex-col items-center">
-      <div className="bg-bgDark/50 backdrop-blur-sm border border-white/10 p-4 md:p-6 rounded-lg min-w-[80px] md:min-w-[120px] mb-2 shadow-lg">
-        <span className="font-heading text-3xl md:text-6xl bg-gradient-to-b from-white to-primaryBlue bg-clip-text text-transparent leading-none">
-          {value < 10 ? `0${value}` : value}
-        </span>
-      </div>
-      <span className="text-textMuted text-xs md:text-sm font-bold tracking-[0.2em] uppercase">
-        {label}
-      </span>
-    </div>
-  );
 
   return (
     <section className="flex flex-col items-center px-4 pb-20 pt-10 relative z-20">
