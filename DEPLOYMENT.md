@@ -45,14 +45,20 @@ DriveClubWebsite/
 
 ## 🌐 GitHub Pages Configuration
 
+### Automatic Deployment with GitHub Actions
+
+This site uses **GitHub Actions** for automatic deployment. Every push to `main` will automatically build and deploy the site.
+
+1. In your GitHub repository settings, go to **Pages**
+2. Set source to **GitHub Actions** (not "Deploy from a branch")
+3. The workflow will automatically deploy from the `dist/` folder
+4. The `CNAME` file in `dist/` will automatically configure your custom domain
+
 ### Custom Domain Setup
 
 This site is configured for the custom domain: **www.drivecityrp.net**
 
-1. In your GitHub repository settings, go to **Pages**
-2. Set source to **Deploy from a branch**
-3. Select branch: **main** and folder: **/ (root)**
-4. The `CNAME` file in the root will automatically configure your custom domain
+The `CNAME` file is automatically copied to `dist/` during build, so your custom domain will work automatically.
 5. **Note**: The postbuild script automatically copies built files from `dist/` to root, so GitHub Pages serves the production build
 
 ### DNS Configuration
@@ -84,23 +90,24 @@ A       @       185.199.111.153         Automatic
    ```bash
    npm run dev
    ```
-3. **Build for production**
+3. **Commit and push** (GitHub Actions will build and deploy automatically)
    ```bash
-   npm run build
-   ```
-4. **Commit and push**
-   ```bash
-   git add dist/
+   git add .
    git commit -m "Update website"
    git push
    ```
+4. **GitHub Actions will automatically:**
+   - Build the project
+   - Deploy to GitHub Pages
+   - Your site will be live in a few minutes
 
 ## 📝 Important Notes
 
-- The `dist/` folder is **committed to the repository** (required for GitHub Pages)
+- **GitHub Actions** automatically builds and deploys on every push
+- The `dist/` folder is generated during the build process (not committed)
 - Build configuration files are in the `build/` folder
 - Base path is set to `/` for custom domain use
-- Always run `npm run build` before committing changes
+- No need to manually build or commit `dist/` - GitHub Actions handles it
 
 ## 🔧 Troubleshooting
 

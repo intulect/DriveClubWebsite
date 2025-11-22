@@ -30,36 +30,62 @@ function copyDir(src, dest) {
 }
 
 // Copy all dist files to root (for GitHub Pages root deployment)
-console.log('Copying built files to root...');
-copyDir(distDir, rootDir);
+// Only copy if not running in CI (GitHub Actions will deploy from dist directly)
+const isCI = process.env.CI === 'true';
+if (!isCI) {
+  console.log('Copying built files to root (local deployment)...');
+  copyDir(distDir, rootDir);
+} else {
+  console.log('Skipping root copy - GitHub Actions will deploy from dist/');
+}
 
-// Explicitly copy index.html to ensure it's overwritten
-const distIndexHtml = join(distDir, 'index.html');
-const rootIndexHtml = join(rootDir, 'index.html');
-if (existsSync(distIndexHtml)) {
-  // Remove existing file first to ensure clean copy
-  if (existsSync(rootIndexHtml)) {
-    unlinkSync(rootIndexHtml);
+// Explicitly copy index.html to ensure it's overwritten (only if not in CI)
+if (!isCI) {
+  const distIndexHtml = join(distDir, 'index.html');
+  const rootIndexHtml = join(rootDir, 'index.html');
+  if (existsSync(distIndexHtml)) {
+    // Remove existing file first to ensure clean copy
+    if (existsSync(rootIndexHtml)) {
+      unlinkSync(rootIndexHtml);
+    }
+    // Read and write to ensure complete overwrite
+    const content = readFileSync(distIndexHtml, 'utf8');
+    writeFileSync(rootIndexHtml, content, 'utf8');
+    console.log('✓ Copied index.html to root');
   }
-  // Read and write to ensure complete overwrite
-  const content = readFileSync(distIndexHtml, 'utf8');
-  writeFileSync(rootIndexHtml, content, 'utf8');
-  console.log('✓ Copied index.html to root');
 }
 
-console.log('✓ Copied all dist files to root');
+if (!isCI) {
+  console.log('✓ Copied all dist files to root');
+}
 
-// Ensure CNAME exists in root
+// Ensure CNAME exists in dist (for GitHub Actions deployment)
 if (existsSync(cnamePath)) {
-  console.log('✓ CNAME already exists in root');
+  copyFileSync(cnamePath, join(distDir, 'CNAME'));
+  console.log('✓ Copied CNAME to dist/');
 } else if (existsSync(join(distDir, 'CNAME'))) {
-  copyFileSync(join(distDir, 'CNAME'), cnamePath);
-  console.log('✓ Copied CNAME to root');
+  console.log('✓ CNAME already exists in dist/');
 }
 
-// Create .nojekyll file in root
-writeFileSync(nojekyllPath, '');
-console.log('✓ Created .nojekyll in root');
+// Also copy to root if not in CI
+if (!isCI) {
+  if (existsSync(cnamePath)) {
+    console.log('✓ CNAME already exists in root');
+  } else if (existsSync(join(distDir, 'CNAME'))) {
+    copyFileSync(join(distDir, 'CNAME'), cnamePath);
+    console.log('✓ Copied CNAME to root');
+  }
+}
+
+// Create .nojekyll file in dist (for GitHub Actions)
+writeFileSync(join(distDir, '.nojekyll'), '');
+console.log('✓ Created .nojekyll in dist/');
+
+// Also create in root if not in CI
+if (!isCI) {
+  writeFileSync(nojekyllPath, '');
+  console.log('✓ Created .nojekyll in root');
+}
 
 // Restore source index.html for next build (Vite needs the source version)
 const sourceIndexHtml = `<!doctype html>
@@ -83,11 +109,15 @@ const sourceIndexHtml = `<!doctype html>
 </html>
 `;
 
-// Save source index.html to a temp location before overwriting
-const tempSourceHtml = join(rootDir, 'index.html.source');
-writeFileSync(tempSourceHtml, sourceIndexHtml, 'utf8');
-console.log('✓ Saved source index.html for next build');
-
-console.log('\n✓ Deployment files ready! GitHub Pages can now serve from root.');
-console.log('Note: Source index.html is saved as index.html.source for reference.');
+if (!isCI) {
+  // Save source index.html to a temp location before overwriting
+  const tempSourceHtml = join(rootDir, 'index.html.source');
+  writeFileSync(tempSourceHtml, sourceIndexHtml, 'utf8');
+  console.log('✓ Saved source index.html for next build');
+  
+  console.log('\n✓ Deployment files ready! GitHub Pages can now serve from root.');
+  console.log('Note: Source index.html is saved as index.html.source for reference.');
+} else {
+  console.log('\n✓ Build complete! GitHub Actions will deploy from dist/ folder.');
+}
 
