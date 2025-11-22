@@ -51,8 +51,9 @@ This site is configured for the custom domain: **www.drivecityrp.net**
 
 1. In your GitHub repository settings, go to **Pages**
 2. Set source to **Deploy from a branch**
-3. Select branch: **main** and folder: **/dist**
-4. The `CNAME` file in the dist folder will automatically configure your custom domain
+3. Select branch: **main** and folder: **/ (root)**
+4. The `CNAME` file in the root will automatically configure your custom domain
+5. **Note**: The postbuild script automatically copies built files from `dist/` to root, so GitHub Pages serves the production build
 
 ### DNS Configuration
 
