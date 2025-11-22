@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
 const galleryImages = [
-  { url: 'https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1200&auto=format&fit=crop', label: 'HUD', caption: 'NEXT-GEN UI & PHONE' },
-  { url: 'https://images.unsplash.com/photo-1605218457336-92748b9d00d8?q=80&w=1200&auto=format&fit=crop', label: 'GANGS', caption: 'GANGS & TERRITORY' },
-  { url: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop', label: 'CARS', caption: 'DRIVING & CARS' },
-  { url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop', label: 'CITY', caption: 'CITY LIFE & RP' },
-  { url: 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?q=80&w=1200&auto=format&fit=crop', label: 'STYLE', caption: 'FASHION & STYLE' },
-  { url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop', label: 'JOBS', caption: 'ECONOMY & JOBS' },
-  { url: 'https://images.unsplash.com/photo-1566737236500-c8ac43014a67?q=80&w=1200&auto=format&fit=crop', label: 'EVENTS', caption: 'COMMUNITY EVENTS' }
+  { url: 'https://images.unsplash.com/photo-1617788138017-80ad40651399?q=80&w=1200&auto=format&fit=crop', label: 'VEHICLES', caption: 'CUSTOM IMPORT VEHICLES' },
+  { url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1200&auto=format&fit=crop', label: 'ECONOMY', caption: 'PLAYER DRIVEN ECONOMY' },
+  { url: 'https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?q=80&w=1200&auto=format&fit=crop', label: 'STREETS', caption: 'GANG TERRITORIES' },
+  { url: 'https://images.unsplash.com/photo-1600596542815-2250657d2fc5?q=80&w=1200&auto=format&fit=crop', label: 'HOUSING', caption: 'LUXURY PROPERTIES' },
+  { url: 'https://images.unsplash.com/photo-1543005678-35f587d25244?q=80&w=1200&auto=format&fit=crop', label: 'POLICE', caption: 'ACTIVE LAW ENFORCEMENT' },
+  { url: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop', label: 'BUSINESS', caption: 'OWNABLE BUSINESSES' },
 ];
 
 const Gallery: React.FC = () => {
@@ -27,20 +26,26 @@ const Gallery: React.FC = () => {
   return (
     <section className="bg-bgLighter py-20 px-6 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-heading text-3xl md:text-4xl text-center mb-12 text-textMain border-b-2 border-primaryBlue pb-4 table mx-auto">
-          Visual Proof
+        <h2 className="font-heading text-3xl md:text-4xl text-center mb-12 text-textMain border-b-2 border-primaryBlue pb-4 table mx-auto uppercase tracking-wider">
+          Visual Experience
         </h2>
 
-        <div className="bg-bgPanel p-4 rounded-2xl border border-white/5">
+        <div className="bg-bgPanel p-4 rounded-2xl border border-white/5 shadow-2xl">
           {/* Main Image Display */}
           <div className="relative w-full h-[400px] md:h-[600px] bg-black rounded-lg overflow-hidden mb-4 group">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bgDark/90 z-10" />
             <img 
               src={galleryImages[currentIndex].url} 
               alt={galleryImages[currentIndex].caption}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
             />
-            <div className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/90 to-transparent p-8 pt-20">
-              <h3 className="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider">
+            <div className="absolute bottom-0 left-0 w-full z-20 p-8 pt-20 text-center md:text-left">
+              <div className="inline-block bg-primaryBlue/20 backdrop-blur-sm border border-primaryBlue/30 px-4 py-1 rounded mb-2">
+                <span className="text-accentCyan font-bold text-sm tracking-widest uppercase">
+                  Live Gameplay
+                </span>
+              </div>
+              <h3 className="font-heading text-2xl md:text-5xl text-white uppercase tracking-wider drop-shadow-lg">
                 {galleryImages[currentIndex].caption}
               </h3>
             </div>
@@ -57,15 +62,24 @@ const Gallery: React.FC = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`
-                  min-w-[100px] md:min-w-[120px] h-16 md:h-20 rounded-md flex items-center justify-center
-                  font-bold text-xs md:text-sm transition-all duration-200 border
+                  flex-shrink-0 min-w-[100px] md:min-w-[140px] h-16 md:h-24 rounded-lg overflow-hidden relative
+                  transition-all duration-300 border-2
                   ${currentIndex === index 
-                    ? 'bg-primaryBlue/10 border-primaryBlue text-white scale-105' 
-                    : 'bg-bgDark border-white/10 text-textMuted hover:border-primaryBlue hover:text-white hover:-translate-y-1'
+                    ? 'border-primaryBlue scale-105 shadow-[0_0_15px_rgba(34,132,217,0.5)]' 
+                    : 'border-transparent opacity-60 hover:opacity-100 hover:border-white/20'
                   }
                 `}
               >
-                {img.label}
+                <img 
+                  src={img.url} 
+                  alt={img.label}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                  <span className="font-bold text-[10px] md:text-xs text-white uppercase tracking-wider drop-shadow-md">
+                    {img.label}
+                  </span>
+                </div>
               </button>
             ))}
           </div>

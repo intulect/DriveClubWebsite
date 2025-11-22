@@ -18,7 +18,7 @@ const Header: React.FC = () => {
       
       <div className="inline-flex items-center bg-[rgba(34,132,217,0.1)] border border-[rgba(34,132,217,0.3)] px-5 py-2 rounded-full font-bold text-sm text-primaryBlue shadow-[0_0_20px_rgba(34,132,217,0.1)] backdrop-blur-sm">
         <span className="w-2 h-2 bg-accentCyan rounded-full mr-2 shadow-[0_0_8px_#00f3ff] animate-pulse"></span>
-        LAIDBACK & IMMERSIVE
+        QUALITY & IMMERSIVE
       </div>
     </header>
   );
