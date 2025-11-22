@@ -61,5 +61,33 @@ if (existsSync(cnamePath)) {
 writeFileSync(nojekyllPath, '');
 console.log('✓ Created .nojekyll in root');
 
+// Restore source index.html for next build (Vite needs the source version)
+const sourceIndexHtml = `<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriveCity RP</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Roboto:wght@400;500;700;900&family=UnifrakturCook:wght@700&display=swap&subset=latin,latin-ext" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+`;
+
+// Save source index.html to a temp location before overwriting
+const tempSourceHtml = join(rootDir, 'index.html.source');
+writeFileSync(tempSourceHtml, sourceIndexHtml, 'utf8');
+console.log('✓ Saved source index.html for next build');
+
 console.log('\n✓ Deployment files ready! GitHub Pages can now serve from root.');
+console.log('Note: Source index.html is saved as index.html.source for reference.');
 

@@ -23,9 +23,9 @@ export default {
         textMuted: '#c2c2c2',
       },
       fontFamily: {
-        heading: ['"Bowlby One SC"', 'sans-serif'],
-        body: ['"Roboto"', 'sans-serif'],
-        gothic: ['"UnifrakturCook"', 'cursive'],
+        heading: ['"Bowlby One SC"', 'Impact', 'Arial Black', 'sans-serif'],
+        body: ['"Roboto"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Arial', 'sans-serif'],
+        gothic: ['"UnifrakturCook"', 'serif'],
       },
     },
   },
