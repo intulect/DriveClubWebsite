@@ -100,11 +100,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     onclick="setActiveGallery(${index})"
                     onmouseenter="setActiveGallery(${index})"
                 >
-                    <!-- Background Image -->
-                    <div 
-                        class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
-                        style="background-image: url('${item.img}')"
-                    ></div>
+                    <!-- Image -->
+                    <img 
+                        src="${item.img}" 
+                        alt="${item.title} - ${item.category}" 
+                        class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                    />
                     
                     <!-- Overlay -->
                     <div class="absolute inset-0 bg-gradient-to-b from-transparent via-bgDark/50 to-bgDark/90"></div>
