@@ -60,10 +60,15 @@ if (!isCI) {
 }
 
 // Ensure CNAME exists in dist (for GitHub Actions deployment)
+const distCnamePath = join(distDir, 'CNAME');
 if (existsSync(cnamePath)) {
-  copyFileSync(cnamePath, join(distDir, 'CNAME'));
+  copyFileSync(cnamePath, distCnamePath);
   console.log('✓ Copied CNAME to dist/');
-} else if (existsSync(join(distDir, 'CNAME'))) {
+} else if (!existsSync(distCnamePath)) {
+  // Create CNAME if it doesn't exist
+  writeFileSync(distCnamePath, 'www.drivecityrp.net\n', 'utf8');
+  console.log('✓ Created CNAME in dist/');
+} else {
   console.log('✓ CNAME already exists in dist/');
 }
 

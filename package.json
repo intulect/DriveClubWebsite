@@ -8,7 +8,10 @@
     "build": "tsc -b build/tsconfig.json && vite build --config build/vite.config.ts",
     "postbuild": "node scripts/postbuild.js",
     "lint": "eslint . --config build/eslint.config.js",
-    "preview": "vite preview --config build/vite.config.ts"
+    "lint:fix": "eslint . --config build/eslint.config.js --fix",
+    "preview": "vite preview --config build/vite.config.ts",
+    "clean": "rm -rf dist node_modules/.vite",
+    "type-check": "tsc -b build/tsconfig.json --noEmit"
   },
   "dependencies": {
     "react": "^19.2.0",
