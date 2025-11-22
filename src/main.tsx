@@ -7,16 +7,14 @@ import App from './App.tsx'
 const rootElement = document.getElementById('root');
 
 if (!rootElement) {
-  console.error('Failed to find the root element');
-} else {
-  console.log('Root element found, rendering React app');
-  const root = createRoot(rootElement);
-  root.render(
-    <StrictMode>
-      <HashRouter>
-        <App />
-      </HashRouter>
-    </StrictMode>,
-  );
-  console.log('React render called');
+  throw new Error('Failed to find the root element');
 }
+
+const root = createRoot(rootElement);
+root.render(
+  <StrictMode>
+    <HashRouter>
+      <App />
+    </HashRouter>
+  </StrictMode>,
+);
