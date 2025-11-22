@@ -8,9 +8,16 @@
   color: #ffffff;
 }
 
+body {
+  background-color: #141517; /* Fallback */
+  color: white;
+  min-height: 100vh;
+  margin: 0;
+}
+
 @layer base {
   body {
-    @apply overflow-x-hidden min-h-screen;
+    @apply overflow-x-hidden min-h-screen bg-bgDark text-textMain;
   }
 }
 

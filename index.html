@@ -5,6 +5,31 @@
     <link rel="icon" type="image/png" href="/logo.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DriveCity RP</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Roboto:wght@400;500;700;900&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+
+    <!-- Global Error Handler for Debugging -->
+    <script>
+      window.onerror = function(message, source, lineno, colno, error) {
+        var div = document.createElement('div');
+        div.style.color = '#ff3333';
+        div.style.position = 'fixed';
+        div.style.top = '0';
+        div.style.left = '0';
+        div.style.width = '100%';
+        div.style.zIndex = '9999';
+        div.style.background = 'rgba(0,0,0,0.9)';
+        div.style.padding = '20px';
+        div.style.fontFamily = 'monospace';
+        div.style.fontSize = '16px';
+        div.innerText = 'RUNTIME ERROR:\n' + message + '\n\nFile: ' + source + ':' + lineno;
+        document.body.appendChild(div);
+        console.error('Global Error Caught:', error);
+      };
+    </script>
   </head>
   <body>
     <div id="root"></div>
