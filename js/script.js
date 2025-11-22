@@ -61,28 +61,28 @@ document.addEventListener('DOMContentLoaded', () => {
             id: 1,
             title: "High Rollers",
             category: "Diamond Casino",
-            img: "https://images.unsplash.com/photo-1605870445919-838d190e8e1b?q=80&w=2000&auto=format&fit=crop",
+            img: "https://placehold.co/800x600/121212/3b82f6?text=To+Be+Announced",
             desc: "Step into the Diamond Casino. Where fortunes are made and lost. High stakes poker, blackjack, and exclusive VIP lounges for the city's elite."
         },
         {
             id: 2,
             title: "Underground",
             category: "Street Racing",
-            img: "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81d?q=80&w=2000&auto=format&fit=crop",
+            img: "https://placehold.co/800x600/121212/3b82f6?text=To+Be+Announced",
             desc: "The streets are alive at night. Join underground racing crews, tune your JDM legend, and drift through the neon-lit corners of Los Santos."
         },
         {
             id: 3,
             title: "The Force",
             category: "LSPD & EMS",
-            img: "https://images.unsplash.com/photo-1495573480725-1c3988a7d341?q=80&w=2000&auto=format&fit=crop",
+            img: "https://placehold.co/800x600/121212/3b82f6?text=To+Be+Announced",
             desc: "Join the ranks of the brave. Advanced police fleet with custom liveries, tactical gear, and a dispatch system that keeps the city safe."
         },
         {
             id: 4,
             title: "Lifestyle",
             category: "Housing & Chill",
-            img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
+            img: "https://placehold.co/800x600/121212/3b82f6?text=To+Be+Announced",
             desc: "Live your best life. From Vinewood Hills mansions to cozy Sandy Shores trailers. Fully custom furnishing to make your house a home."
         }
     ];
