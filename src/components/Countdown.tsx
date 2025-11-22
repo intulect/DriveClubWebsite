@@ -88,7 +88,7 @@ const Countdown: React.FC = () => {
           </a>
           <div className="flex items-center gap-2 text-textMuted text-sm">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-            Whitelisted Applications Open
+            If interested in beta testing join our discord!
           </div>
         </div>
       </div>

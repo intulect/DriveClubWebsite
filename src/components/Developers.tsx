@@ -3,22 +3,22 @@ import { FaCode, FaServer, FaDatabase } from 'react-icons/fa';
 
 const developers = [
   {
-    name: "Dev One",
-    role: "Lead Developer & Systems",
-    desc: "Expert in core framework optimization and custom resource development. Ensures the city runs smooth at 144 FPS.",
+    name: "Intulect",
+    role: "Founder & Lead Operator",
+    desc: "The visionary behind DriveCity RP and founder of Intulect Server Group. Strategic operator who oversees the entire project with precision and dedication.",
     icon: FaCode
   },
   {
-    name: "Dev Two",
-    role: "Economy & Balancing",
-    desc: "Focused on creating a realistic, sustainable economy. Manages business scripts, job payouts, and market fluctuations.",
-    icon: FaDatabase
+    name: "CaptainGuinea",
+    role: "Lead Developer",
+    desc: "A passionate developer who brings exceptional technical expertise to every feature. Known for going above and beyond to deliver polished, high-quality systems.",
+    icon: FaServer
   },
   {
-    name: "Dev Three",
-    role: "Vehicle & Asset Manager",
-    desc: "Handling all vehicle handling files, clothing imports, and map optimizations. bringing the highest quality assets to the city.",
-    icon: FaServer
+    name: "SmokeOpps",
+    role: "Backend Specialist",
+    desc: "A dedicated FiveM veteran with extensive backend development experience. Combines deep game knowledge with technical mastery to build robust server infrastructure.",
+    icon: FaDatabase
   }
 ];
 

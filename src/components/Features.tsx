@@ -20,7 +20,7 @@ const features = [
   {
     icon: FaUserTie,
     title: "Serious Roleplay",
-    desc: "Strict RP rules and a curated whitelist process ensure high-quality interactions. No low-effort characters allowed."
+    desc: "Strict RP rules and quality standards ensure high-quality interactions. No low-effort characters allowed."
   },
   {
     icon: FaCogs,

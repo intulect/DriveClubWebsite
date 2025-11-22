@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             <div className="text-left">
               <div className="leading-none">JOIN THE FAMILY</div>
               <div className="text-xs md:text-sm font-body font-normal opacity-80 tracking-wider mt-1">
-                WHITELIST APPLICATIONS OPEN
+                If interested in beta testing join our discord!
               </div>
             </div>
           </a>
