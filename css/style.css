@@ -73,3 +73,10 @@ html {
     transform: translateY(0);
 }
 
+/* Rules Page Specifics */
+.rule-item {
+    transition: all 0.3s ease;
+}
+.rule-item:hover {
+    transform: translateX(5px);
+}

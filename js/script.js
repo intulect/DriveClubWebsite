@@ -59,31 +59,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const galleryData = [
         {
             id: 1,
-            title: "High Stakes",
-            category: "Casino & Leisure",
-            img: "https://images.unsplash.com/photo-1596838132731-3301c3fd4317?q=80&w=2000&auto=format&fit=crop",
-            desc: "Experience the thrill of the Diamond Casino. High stakes poker, blackjack, and roulette tables await."
+            title: "High Rollers",
+            category: "Diamond Casino",
+            img: "https://images.unsplash.com/photo-1605870445919-838d190e8e1b?q=80&w=2000&auto=format&fit=crop",
+            desc: "Step into the Diamond Casino. Where fortunes are made and lost. High stakes poker, blackjack, and exclusive VIP lounges for the city's elite."
         },
         {
             id: 2,
-            title: "Street Racing",
-            category: "Underground",
-            img: "https://images.unsplash.com/photo-1503376763036-066120622c74?q=80&w=2000&auto=format&fit=crop",
-            desc: "Dominate the streets with custom tuned imports. Drifting competitions, drag strips, and police chases."
+            title: "Underground",
+            category: "Street Racing",
+            img: "https://images.unsplash.com/photo-1614200179396-2bdb77ebf81d?q=80&w=2000&auto=format&fit=crop",
+            desc: "The streets are alive at night. Join underground racing crews, tune your JDM legend, and drift through the neon-lit corners of Los Santos."
         },
         {
             id: 3,
-            title: "Law Enforcement",
-            category: "Emergency Services",
-            img: "https://images.unsplash.com/photo-1555861496-0666c8981751?q=80&w=2000&auto=format&fit=crop",
-            desc: "Protect and serve. Advanced police fleet, dispatch systems, and tactical operations."
+            title: "The Force",
+            category: "LSPD & EMS",
+            img: "https://images.unsplash.com/photo-1495573480725-1c3988a7d341?q=80&w=2000&auto=format&fit=crop",
+            desc: "Join the ranks of the brave. Advanced police fleet with custom liveries, tactical gear, and a dispatch system that keeps the city safe."
         },
         {
             id: 4,
-            title: "Properties",
-            category: "Housing",
-            img: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop",
-            desc: "From luxury penthouses to cozy trailers. Fully furnishable interiors with custom furniture systems."
+            title: "Lifestyle",
+            category: "Housing & Chill",
+            img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=80&w=2000&auto=format&fit=crop",
+            desc: "Live your best life. From Vinewood Hills mansions to cozy Sandy Shores trailers. Fully custom furnishing to make your house a home."
         }
     ];
 
