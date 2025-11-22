@@ -1,5 +1,7 @@
 import React from 'react';
 import { FaChartLine, FaTools, FaHandshake, FaUserTie, FaCogs, FaSitemap } from 'react-icons/fa';
+import { Section, SectionTitle } from './ui/Section';
+import { GlassPanel } from './ui/GlassPanel';
 
 const features = [
   {
@@ -36,34 +38,27 @@ const features = [
 
 const Features: React.FC = () => {
   return (
-    <section className="max-w-7xl mx-auto px-6 mb-20">
-      <h2 className="font-heading text-3xl md:text-4xl text-center mb-12 text-textMain border-b-2 border-primaryBlue pb-4 table mx-auto uppercase tracking-wider">
-        Why Choose DriveCity?
-      </h2>
+    <Section id="features" className="bg-bgDark">
+      <SectionTitle title="Why Choose Us" subtitle="The DriveCity Difference" />
       
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {features.map((feature, index) => (
-          <div 
-            key={index}
-            className="group bg-bgPanel border border-white/5 p-8 rounded-xl transition-all duration-300 hover:-translate-y-2 hover:border-primaryBlue hover:shadow-[0_10px_30px_rgba(34,132,217,0.2)] relative overflow-hidden"
-          >
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primaryBlue to-accentCyan opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            
-            <div className="text-4xl text-primaryBlue mb-6 transform group-hover:scale-110 transition-transform duration-300">
+          <GlassPanel key={index} hoverEffect className="p-8 group">
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center text-primary text-2xl mb-6 group-hover:scale-110 group-hover:bg-primary group-hover:text-white transition-all duration-300">
               <feature.icon />
             </div>
             
-            <h3 className="font-heading text-xl mb-4 text-textMain tracking-wide">
+            <h3 className="font-heading text-xl text-white mb-4 group-hover:text-primary transition-colors">
               {feature.title}
             </h3>
             
-            <p className="text-textMuted leading-relaxed text-sm font-medium">
+            <p className="text-gray-400 text-sm leading-relaxed">
               {feature.desc}
             </p>
-          </div>
+          </GlassPanel>
         ))}
       </div>
-    </section>
+    </Section>
   );
 };
 

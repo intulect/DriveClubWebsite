@@ -1,34 +1,51 @@
 import React from 'react';
-import { FaDiscord } from 'react-icons/fa';
+import { FaDiscord, FaTwitter, FaYoutube } from 'react-icons/fa';
+import logo from '../images/logo.png';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-bgDark py-20 px-6 text-center border-t border-white/5 relative overflow-hidden">
-      <div className="relative z-10">
-        <div className="mb-12">
-          <a 
-            href="https://discord.gg/sWQ3dadpyU" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-4 px-8 py-4 md:px-16 md:py-6 bg-[#5865F2] hover:bg-[#4752C4] rounded-xl text-white font-heading text-xl md:text-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(88,101,242,0.4)] border border-white/10 group"
-          >
-            <FaDiscord className="text-3xl md:text-4xl group-hover:rotate-[15deg] transition-transform duration-300" />
-            <div className="text-left">
-              <div className="leading-none">JOIN THE FAMILY</div>
-              <div className="text-xs md:text-sm font-body font-normal opacity-80 tracking-wider mt-1">
-                If interested in beta testing join our discord!
-              </div>
+    <footer className="bg-bgPanel border-t border-white/5 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+          <div className="md:col-span-2">
+            <img src={logo} alt="DriveCity" className="h-12 mb-6 opacity-80 grayscale hover:grayscale-0 transition-all" />
+            <p className="text-gray-400 max-w-md leading-relaxed mb-8">
+              DriveCity RP is a premier roleplay community built on innovation, performance, and player experience. Join us and define your story.
+            </p>
+            <div className="flex gap-4">
+              {[FaDiscord, FaTwitter, FaYoutube].map((Icon, idx) => (
+                <a key={idx} href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all">
+                  <Icon />
+                </a>
+              ))}
             </div>
-          </a>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-white uppercase tracking-widest mb-6">Navigation</h4>
+            <ul className="space-y-4 text-gray-400">
+              {['Home', 'Features', 'Team', 'Gallery'].map(item => (
+                <li key={item}>
+                  <a href={`#${item.toLowerCase()}`} className="hover:text-primary transition-colors">{item}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          <div>
+            <h4 className="font-bold text-white uppercase tracking-widest mb-6">Legal</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
+              <li><a href="#" className="hover:text-primary transition-colors">Rules</a></li>
+            </ul>
+          </div>
         </div>
         
-        <p className="text-textMuted text-sm tracking-widest">
-          &copy; 2026 DRIVE CITY RP // EST. LOS SANTOS
-        </p>
+        <div className="pt-8 border-t border-white/5 text-center text-gray-500 text-sm">
+          <p>&copy; {new Date().getFullYear()} DriveCity RP. All rights reserved.</p>
+        </div>
       </div>
-      
-      {/* Ambient Background Glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-primaryBlue/5 blur-[100px] rounded-full pointer-events-none" />
     </footer>
   );
 };
