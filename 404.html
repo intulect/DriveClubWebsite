@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="404 - Page Not Found | DriveCity RP">
+    <meta name="theme-color" content="#3b82f6">
+    
+    <title>404 | DriveCity RP</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/logo.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Rajdhani:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS (CDN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#050505',
+                        bgPanel: '#0a0a0a',
+                        primary: '#3b82f6',
+                        accent: '#06b6d4',
+                        danger: '#ef4444',
+                    },
+                    fontFamily: {
+                        heading: ['"Rajdhani"', 'sans-serif'],
+                        body: ['"Lato"', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-bgDark text-white overflow-hidden font-body selection:bg-primary selection:text-white bg-grid-pattern h-screen flex flex-col">
+
+    <!-- Navigation (Simplified) -->
+    <nav class="absolute top-0 w-full z-50 px-6 py-6">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-4 group cursor-pointer">
+                <img src="images/logo.png" alt="Logo" class="h-16 object-contain relative z-10 drop-shadow-[0_0_15px_rgba(59,130,246,0.3)] grayscale group-hover:grayscale-0 transition-all duration-500">
+            </a>
+        </div>
+    </nav>
+
+    <!-- 404 Content -->
+    <main class="flex-grow flex items-center justify-center relative z-10 px-6">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[150px] animate-pulse-slow"></div>
+        </div>
+
+        <div class="text-center relative z-20">
+            <div class="font-heading font-black text-[120px] md:text-[200px] leading-none text-transparent bg-clip-text bg-gradient-to-r from-white/10 to-white/5 select-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 blur-sm">
+                404
+            </div>
+            
+            <h1 class="font-heading text-8xl md:text-9xl font-bold mb-4 text-white tracking-tighter glitch-hover cursor-default" data-text="404">
+                <span class="text-primary">4</span>0<span class="text-accent">4</span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 font-light tracking-widest uppercase mb-10">
+                Signal Lost. Destination Unknown.
+            </p>
+            
+            <a href="index.html" class="inline-flex items-center gap-3 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 text-white px-8 py-4 rounded-lg font-bold uppercase tracking-widest transition-all hover:-translate-y-1 group">
+                <i class="fas fa-chevron-left text-primary group-hover:-translate-x-1 transition-transform"></i>
+                <span>Return to City</span>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="absolute bottom-0 w-full py-6 border-t border-white/5 bg-bgDark/50 backdrop-blur-sm">
+        <div class="container mx-auto px-6 text-center text-gray-600 text-xs tracking-[0.2em]">
+            SYSTEM FAILURE // ERROR CODE: NOT_FOUND
+        </div>
+    </footer>
+
+    <!-- Simple glitch script inline for 404 -->
+    <script>
+        // Loading effect
+        window.addEventListener('load', () => {
+            document.body.classList.add('loaded');
+        });
+    </script>
+</body>
+</html>
+
