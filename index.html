@@ -195,7 +195,7 @@
                             <i class="fas fa-play text-primary text-xl md:text-2xl group-hover:animate-pulse"></i>
                             <span>Play Now</span>
                         </div>
-                        <div class="absolute inset-0 rounded-full border-2 border-white/50 scale-100 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"></div>
+                        <div class="absolute inset-0 rounded-full border-2 border-white/50 scale-100 animate-pulse-ring"></div>
                     </a>
                     <span class="mt-4 text-gray-500 text-[10px] font-bold tracking-[0.4em] uppercase animate-pulse">(Coming Soon)</span>
                 </div>
@@ -253,9 +253,99 @@
         </section>
 
         <!-- Gallery -->
-        <section id="gallery" class="py-0 relative z-20 border-y border-white/5 bg-bgPanel">
-            <div class="flex flex-col md:flex-row w-full min-h-[800px]" id="gallery-container">
-                <!-- Injected by JS -->
+        <section id="gallery" class="relative z-20 bg-bgPanel py-20 border-t border-white/5">
+            <div class="container mx-auto px-6 mb-12 text-center">
+                <span class="text-accent font-bold tracking-[0.3em] uppercase text-xs md:text-sm mb-3 block">Visual Tour</span>
+                <h2 class="font-heading text-4xl md:text-7xl uppercase tracking-tight mb-8">City <span class="text-gradient">Showcase</span></h2>
+            </div>
+
+            <div class="gallery-container w-full max-w-[1800px] mx-auto h-[600px] md:h-[700px] px-4 flex flex-col md:flex-row gap-2 md:gap-4 transition-all duration-500">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-card relative flex-1 rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out group active" data-id="1">
+                    <img src="images/preview1.png" alt="Enhanced MLOs" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-[.active]:opacity-40"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20 translate-y-4 group-[.active]:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center gap-3 mb-2 opacity-0 group-[.active]:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="w-8 h-8 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-xs font-bold">01</span>
+                            <span class="text-accent text-xs font-bold tracking-[0.2em] uppercase">Environment</span>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider mb-2 drop-shadow-lg group-[.active]:text-primary transition-colors">Enhanced MLOs</h3>
+                        <p class="text-gray-300 text-sm md:text-base max-w-md opacity-0 max-h-0 group-[.active]:opacity-100 group-[.active]:max-h-[200px] transition-all duration-700 delay-200 leading-relaxed">
+                            Experience a completely reimagined city with highly detailed, custom interiors. Every door opens to a new world.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-card relative flex-1 rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out group" data-id="2">
+                    <img src="images/preview2.png" alt="Custom UI" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-[.active]:opacity-40"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20 translate-y-4 group-[.active]:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center gap-3 mb-2 opacity-0 group-[.active]:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="w-8 h-8 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-xs font-bold">02</span>
+                            <span class="text-accent text-xs font-bold tracking-[0.2em] uppercase">Interface</span>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider mb-2 drop-shadow-lg group-[.active]:text-primary transition-colors">Modern UI</h3>
+                        <p class="text-gray-300 text-sm md:text-base max-w-md opacity-0 max-h-0 group-[.active]:opacity-100 group-[.active]:max-h-[200px] transition-all duration-700 delay-200 leading-relaxed">
+                            Interact with the city like never before. Completely overhauled menus for a seamless experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-card relative flex-1 rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out group" data-id="3">
+                    <img src="images/preview3.png" alt="Business" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-[.active]:opacity-40"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20 translate-y-4 group-[.active]:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center gap-3 mb-2 opacity-0 group-[.active]:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="w-8 h-8 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-xs font-bold">03</span>
+                            <span class="text-accent text-xs font-bold tracking-[0.2em] uppercase">Economy</span>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider mb-2 drop-shadow-lg group-[.active]:text-primary transition-colors">Self-Serve</h3>
+                        <p class="text-gray-300 text-sm md:text-base max-w-md opacity-0 max-h-0 group-[.active]:opacity-100 group-[.active]:max-h-[200px] transition-all duration-700 delay-200 leading-relaxed">
+                            Advanced systems for businesses. Run your empire efficiently without constant manual oversight.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-card relative flex-1 rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out group" data-id="4">
+                    <img src="images/preview4.png" alt="Ghost Fleet" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-[.active]:opacity-40"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20 translate-y-4 group-[.active]:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center gap-3 mb-2 opacity-0 group-[.active]:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="w-8 h-8 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-xs font-bold">04</span>
+                            <span class="text-accent text-xs font-bold tracking-[0.2em] uppercase">Police</span>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider mb-2 drop-shadow-lg group-[.active]:text-primary transition-colors">Ghost Fleet</h3>
+                        <p class="text-gray-300 text-sm md:text-base max-w-md opacity-0 max-h-0 group-[.active]:opacity-100 group-[.active]:max-h-[200px] transition-all duration-700 delay-200 leading-relaxed">
+                            Unmarked, street-legal enforcement vehicles keeping the streets safe from the shadows.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-card relative flex-1 rounded-[2rem] overflow-hidden cursor-pointer transition-all duration-700 ease-in-out group" data-id="5">
+                    <img src="images/preview5.png" alt="Import Garage" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 group-[.active]:opacity-40"></div>
+                    
+                    <div class="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end z-20 translate-y-4 group-[.active]:translate-y-0 transition-transform duration-500">
+                        <div class="flex items-center gap-3 mb-2 opacity-0 group-[.active]:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="w-8 h-8 rounded-full bg-primary/20 border border-primary/50 flex items-center justify-center text-primary text-xs font-bold">05</span>
+                            <span class="text-accent text-xs font-bold tracking-[0.2em] uppercase">Vehicles</span>
+                        </div>
+                        <h3 class="font-heading text-2xl md:text-4xl text-white uppercase tracking-wider mb-2 drop-shadow-lg group-[.active]:text-primary transition-colors">Import Garage</h3>
+                        <p class="text-gray-300 text-sm md:text-base max-w-md opacity-0 max-h-0 group-[.active]:opacity-100 group-[.active]:max-h-[200px] transition-all duration-700 delay-200 leading-relaxed">
+                            Massive collection of custom vehicles, tuned for performance and styled to turn heads.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </section>
 
