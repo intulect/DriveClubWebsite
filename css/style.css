@@ -241,6 +241,7 @@ body {
 .gallery-card {
     flex-grow: 1;
     filter: grayscale(100%) brightness(0.5);
+    transition: flex 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease-in-out;
 }
 
 .gallery-card.active {
@@ -248,6 +249,22 @@ body {
     filter: grayscale(0%) brightness(1);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Description Text Animation */
+.gallery-card .gallery-desc {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translateY(20px);
+}
+
+.gallery-card.active .gallery-desc {
+    opacity: 1;
+    max-height: 200px; /* Allow enough height for text */
+    transform: translateY(0);
+    transition-delay: 0.2s; /* Wait for card expansion */
 }
 
 @media (min-width: 768px) {
@@ -268,13 +285,13 @@ body {
     
     /* Make gallery items vertical blocks on mobile */
     .gallery-card {
-        flex-basis: 60px; /* Collapsed height on mobile */
-        min-height: 60px;
+        flex-basis: 50px; /* Collapsed height on mobile */
+        min-height: 50px;
     }
     
     .gallery-card.active {
-        flex-basis: 300px;
-        min-height: 300px;
+        flex-basis: 350px;
+        min-height: 350px;
         flex-grow: 100;
     }
 }
