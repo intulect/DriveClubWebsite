@@ -6,11 +6,22 @@ html {
 }
 
 body {
-    background-color: #050505; /* Slightly darker for better contrast */
+    background-color: #050505;
     background-image: 
         radial-gradient(circle at 50% 0%, #1a1a2e 0%, transparent 60%),
         radial-gradient(circle at 80% 50%, #0f172a 0%, transparent 50%);
     background-attachment: fixed;
+}
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+#mobile-menu.hidden {
+    display: none;
+}
+#mobile-menu:not(.hidden) {
+    display: flex;
 }
 
 /* Scrollbar */
@@ -214,4 +225,15 @@ body {
 /* Neon Glow */
 .neon-border {
     box-shadow: 0 0 10px rgba(59, 130, 246, 0.3), inset 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+    .font-heading {
+        word-break: break-word;
+    }
+    .glass-panel {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
 }
