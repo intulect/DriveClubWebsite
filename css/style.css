@@ -262,9 +262,14 @@ body {
 
 .gallery-card.active .gallery-desc {
     opacity: 1;
-    max-height: 200px; /* Allow enough height for text */
+    max-height: 300px; /* Increased to accommodate longer text */
     transform: translateY(0);
-    transition-delay: 0.2s; /* Wait for card expansion */
+    transition-delay: 0.3s; /* Increased delay slightly for smoother feel */
+}
+
+/* Ensure text is readable on all backgrounds */
+.gallery-desc {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
 }
 
 @media (min-width: 768px) {
