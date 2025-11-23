@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('Script Loaded');
+
     // Mobile Menu Logic
     const menuBtn = document.getElementById('menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
@@ -192,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Gallery Logic
     const galleryContainer = document.getElementById('gallery-container');
     if (galleryContainer) {
+        console.log('Gallery Container Found');
         const galleryData = [
             {
                 id: 1,
@@ -238,9 +241,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Mobile: Stacked height. Desktop: Flex grow.
                 const mobileHeight = isActive ? 'h-[250px]' : 'h-[80px]';
                 
+                // Force height on desktop to prevent collapse if content is absolute
+                // We use h-full so it fills the parent container which has min-h-[800px]
+                const desktopHeight = 'md:h-auto'; 
+
                 return `
                     <div 
-                        class="gallery-item relative ${mobileHeight} md:h-auto group overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10 last:border-0 transition-all duration-500 ease-out"
+                        class="gallery-item relative ${mobileHeight} ${desktopHeight} group overflow-hidden cursor-pointer border-b md:border-b-0 md:border-r border-white/10 last:border-0 transition-all duration-500 ease-out"
                         style="flex: ${isActive && window.innerWidth >= 768 ? '3.5' : '1'};"
                         onclick="setActiveGallery(${index})"
                     >
@@ -248,6 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             src="${item.img}" 
                             alt="${item.title}" 
                             class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 ${isActive ? 'scale-100 grayscale-0' : 'grayscale brightness-[0.4]'}"
+                            onerror="this.src='https://placehold.co/600x400/000000/FFFFFF/png?text=Image+Not+Found'"
                         />
                         <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent opacity-80 transition-opacity duration-500 ${isActive ? 'opacity-60' : 'opacity-80'}"></div>
                         
@@ -279,6 +287,8 @@ document.addEventListener('DOMContentLoaded', () => {
         // Re-render on resize to fix layout shifts
         window.addEventListener('resize', renderGallery);
         renderGallery();
+    } else {
+        console.error('Gallery Container NOT Found');
     }
 
     // Scroll Reveal
