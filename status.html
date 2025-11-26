@@ -80,21 +80,125 @@
         </div>
 
         <div class="w-full max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div class="md:col-span-2 glass-panel p-8 md:p-10 rounded-3xl border-l-4 border-warning relative overflow-hidden">
-                <h2 class="font-heading text-3xl md:text-4xl mb-2">Current State</h2>
-                <div class="text-4xl md:text-7xl font-bold text-warning uppercase tracking-tighter mb-4 glitch-hover" data-text="IN DEVELOPMENT">IN DEVELOPMENT</div>
-                <p class="text-gray-400 max-w-2xl text-sm md:text-base">The city is currently under heavy construction.</p>
-            </div>
-
-            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group">
-                <div class="flex items-center gap-4 md:gap-6">
-                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-gray-500"><i class="fas fa-server"></i></div>
-                    <div><h3 class="font-heading text-lg md:text-2xl uppercase">FiveM Server</h3><p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">v1.0.0-beta</p></div>
+            <div class="md:col-span-2 glass-panel p-8 md:p-10 rounded-3xl border-l-4 border-warning relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-r from-warning/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <h2 class="font-heading text-3xl md:text-4xl mb-4 text-white">Current State</h2>
+                <div class="relative">
+                    <div class="text-4xl md:text-7xl font-bold text-warning uppercase tracking-tighter mb-4 glitch-continuous relative z-10" data-text="IN DEVELOPMENT">IN DEVELOPMENT</div>
                 </div>
-                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-warning/10 border border-warning/20 text-warning text-[10px] md:text-xs font-bold uppercase tracking-wider"><span class="w-2 h-2 rounded-full bg-warning animate-pulse"></span> Dev</div>
+                <p class="text-gray-400 max-w-2xl text-sm md:text-base leading-relaxed">The city is currently under heavy construction. Our development team is working tirelessly to bring you the most immersive roleplay experience.</p>
             </div>
 
-            <!-- More items similar to above... -->
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-primary group-hover:border-primary/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-server"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">FiveM Server</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">v1.0.0-beta</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-warning/10 border border-warning/20 text-warning text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-warning animate-pulse"></span> Dev
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-accent group-hover:border-accent/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-database"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Database</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">PostgreSQL 15</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-success/10 border border-success/20 text-success text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span> Online
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-purple-500 group-hover:border-purple-500/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-code"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Core Framework</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">Custom Build</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-warning/10 border border-warning/20 text-warning text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-warning animate-pulse"></span> Dev
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-green-500 group-hover:border-green-500/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-shield-alt"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Anti-Cheat</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">Active</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-success/10 border border-success/20 text-success text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span> Online
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-blue-500 group-hover:border-blue-500/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-globe"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Web Services</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">API v2.1</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-success/10 border border-success/20 text-success text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span> Online
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-yellow-500 group-hover:border-yellow-500/50 group-hover:scale-110 transition-all duration-300"><i class="fas fa-box"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Resource Hub</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">150+ Scripts</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-warning/10 border border-warning/20 text-warning text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-warning animate-pulse"></span> Dev
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 md:p-8 rounded-3xl flex items-center justify-between group hover:border-primary/30 transition-all duration-300">
+                <div class="flex items-center gap-4 md:gap-6">
+                    <div class="w-12 h-12 md:w-14 md:h-14 rounded-xl bg-bgDark border border-white/10 flex items-center justify-center text-xl md:text-2xl text-red-500 group-hover:border-red-500/50 group-hover:scale-110 transition-all duration-300"><i class="fab fa-discord"></i></div>
+                    <div>
+                        <h3 class="font-heading text-lg md:text-2xl uppercase text-white">Discord Bot</h3>
+                        <p class="text-[10px] md:text-xs text-gray-500 tracking-widest uppercase">v3.2.1</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 md:gap-3 px-3 py-1 md:px-4 md:py-2 rounded-lg bg-success/10 border border-success/20 text-success text-[10px] md:text-xs font-bold uppercase tracking-wider">
+                    <span class="w-2 h-2 rounded-full bg-success animate-pulse"></span> Online
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 md:mt-16 w-full max-w-5xl glass-panel p-6 md:p-8 rounded-3xl">
+            <div class="flex items-center justify-between mb-6">
+                <h2 class="font-heading text-2xl md:text-3xl uppercase text-white">System Uptime</h2>
+                <span class="text-xs md:text-sm text-gray-500 font-bold tracking-widest uppercase">Last 30 Days</span>
+            </div>
+            <div class="space-y-4">
+                <div class="flex items-center justify-between text-sm">
+                    <span class="text-gray-400">Uptime Percentage</span>
+                    <span class="text-success font-bold">99.8%</span>
+                </div>
+                <div class="w-full h-2 bg-bgDark rounded-full overflow-hidden">
+                    <div class="h-full bg-gradient-to-r from-success to-green-400 rounded-full" style="width: 99.8%"></div>
+                </div>
+                <div class="flex items-center justify-between text-xs text-gray-500 pt-2">
+                    <span>Last Incident: 2 days ago</span>
+                    <span>Average Response: &lt;50ms</span>
+                </div>
+            </div>
         </div>
     </main>
 

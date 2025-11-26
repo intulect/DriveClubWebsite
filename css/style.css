@@ -108,24 +108,124 @@ body {
     animation: pulse-ring 3s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
-/* Glitch Effect */
+/* Enhanced Glitch Effect - Subtle and Clean */
 @keyframes glitch-anim {
-    0% { clip-path: inset(71% 0 10% 0); transform: translate(-2px, 1px); }
-    10% { clip-path: inset(12% 0 83% 0); transform: translate(1px, -1px); }
-    20% { clip-path: inset(89% 0 2% 0); transform: translate(-1px, 2px); }
-    30% { clip-path: inset(23% 0 54% 0); transform: translate(2px, 1px); }
-    40% { clip-path: inset(45% 0 32% 0); transform: translate(-1px, -2px); }
-    50% { clip-path: inset(16% 0 68% 0); transform: translate(1px, 2px); }
-    60% { clip-path: inset(61% 0 6% 0); transform: translate(-2px, -1px); }
-    70% { clip-path: inset(3% 0 91% 0); transform: translate(2px, 1px); }
-    80% { clip-path: inset(58% 0 34% 0); transform: translate(-1px, 2px); }
-    90% { clip-path: inset(29% 0 18% 0); transform: translate(1px, -2px); }
-    100% { clip-path: inset(71% 0 10% 0); transform: translate(-2px, 1px); }
+    0%, 100% { 
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        opacity: 0;
+    }
+    2% { 
+        clip-path: inset(45% 0 30% 0);
+        transform: translate(-1px, 0.5px);
+        opacity: 0.4;
+    }
+    4% { 
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        opacity: 0;
+    }
+    8% { 
+        clip-path: inset(60% 0 15% 0);
+        transform: translate(1px, -0.5px);
+        opacity: 0.35;
+    }
+    12% { 
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        opacity: 0;
+    }
+    50% { 
+        clip-path: inset(30% 0 50% 0);
+        transform: translate(-0.5px, 0.5px);
+        opacity: 0.3;
+    }
+    52% { 
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+        opacity: 0;
+    }
 }
 
-.glitch-hover:hover {
-    animation: glitch-anim 0.3s infinite linear alternate-reverse;
+@keyframes glitch-skew {
+    0%, 100% { transform: skew(0deg); }
+    2% { transform: skew(-0.5deg); }
+    4% { transform: skew(0deg); }
+    8% { transform: skew(0.5deg); }
+    12% { transform: skew(0deg); }
+    50% { transform: skew(-0.3deg); }
+    52% { transform: skew(0deg); }
+}
+
+.glitch-text {
     position: relative;
+    display: inline-block;
+}
+
+.glitch-text::before,
+.glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 #ef4444;
+    clip-path: inset(0 0 0 0);
+    animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.glitch-text::after {
+    left: -2px;
+    text-shadow: 2px 0 #06b6d4;
+    clip-path: inset(0 0 0 0);
+    animation: glitch-anim 2.5s infinite linear alternate-reverse;
+}
+
+.glitch-text:hover::before,
+.glitch-text:hover::after {
+    animation-duration: 0.3s;
+}
+
+.glitch-continuous {
+    position: relative;
+    display: inline-block;
+    animation: glitch-skew 8s infinite ease-in-out;
+}
+
+.glitch-continuous::before,
+.glitch-continuous::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    pointer-events: none;
+}
+
+.glitch-continuous::before {
+    left: 1px;
+    color: rgba(239, 68, 68, 0.25);
+    clip-path: inset(0 0 0 0);
+    animation: glitch-anim 6s infinite ease-in-out;
+    z-index: -1;
+    filter: blur(0.3px);
+}
+
+.glitch-continuous::after {
+    left: -1px;
+    color: rgba(6, 182, 212, 0.25);
+    clip-path: inset(0 0 0 0);
+    animation: glitch-anim 5.5s infinite ease-in-out;
+    z-index: -1;
+    filter: blur(0.3px);
+    animation-delay: 0.5s;
 }
 
 /* Glassmorphism & Panels */
@@ -276,6 +376,108 @@ body {
     .gallery-card.active {
         flex-grow: 10;
     }
+}
+
+/* Countdown Animations */
+@keyframes countdown-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes countdown-flip {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    51% {
+        transform: rotateX(-90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.countdown-item {
+    opacity: 0;
+    animation: countdown-fade-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.countdown-box {
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.countdown-box::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(6, 182, 212, 0.3));
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(8px);
+}
+
+.countdown-box:hover::before {
+    opacity: 1;
+}
+
+.countdown-number {
+    display: inline-block;
+    perspective: 200px;
+    transform-style: preserve-3d;
+}
+
+.countdown-flip {
+    animation: countdown-flip 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.countdown-number-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shimmer effect on countdown boxes */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.countdown-box::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transition: left 0.5s ease;
+}
+
+.countdown-box:hover::after {
+    left: 100%;
 }
 
 /* Mobile Optimizations */

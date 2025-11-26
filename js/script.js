@@ -154,12 +154,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const targetDate = new Date("Feb 1, 2026 00:00:00").getTime();
 
     if (countdownEl) {
+        let previousValues = {};
+        let isFirstLoad = true;
+
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
 
             if (distance < 0) {
-                countdownEl.innerHTML = '<div class="text-xl md:text-2xl font-bold text-primary uppercase tracking-widest">Launch Initiated</div>';
+                countdownEl.innerHTML = '<div class="text-xl md:text-2xl font-bold text-primary uppercase tracking-widest animate-fade-in-up">Launch Initiated</div>';
                 return;
             }
 
@@ -169,26 +172,43 @@ document.addEventListener('DOMContentLoaded', () => {
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             const timeUnits = [
-                { value: days, label: 'Days' },
-                { value: hours, label: 'Hrs' },
-                { value: minutes, label: 'Min' },
-                { value: seconds, label: 'Sec' }
+                { value: days, label: 'Days', key: 'days' },
+                { value: hours, label: 'Hrs', key: 'hours' },
+                { value: minutes, label: 'Min', key: 'minutes' },
+                { value: seconds, label: 'Sec', key: 'seconds' }
             ];
 
-            countdownEl.innerHTML = timeUnits.map(unit => `
-                <div class="flex flex-col items-center mx-1 md:mx-2 group cursor-default">
-                    <div class="bg-white/5 backdrop-blur-sm border border-white/10 p-3 md:p-6 rounded-xl md:rounded-2xl min-w-[60px] md:min-w-[110px] mb-2 md:mb-3 shadow-xl relative overflow-hidden transition-all duration-300">
-                        <span class="font-heading text-2xl md:text-5xl text-white leading-none block text-center font-bold">
-                            ${unit.value < 10 ? '0' + unit.value : unit.value}
-                        </span>
+            countdownEl.innerHTML = timeUnits.map((unit, index) => {
+                const displayValue = unit.value < 10 ? '0' + unit.value : unit.value;
+                const changed = previousValues[unit.key] !== undefined && previousValues[unit.key] !== unit.value;
+                const delay = isFirstLoad ? index * 0.1 : 0;
+                
+                previousValues[unit.key] = unit.value;
+                
+                return `
+                    <div class="countdown-item flex flex-col items-center mx-1 md:mx-2 group cursor-default" style="animation-delay: ${delay}s">
+                        <div class="countdown-box relative bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-md border border-white/10 p-3 md:p-6 rounded-xl md:rounded-2xl min-w-[60px] md:min-w-[110px] mb-2 md:mb-3 relative overflow-hidden transition-all duration-300 hover:border-primary/30 hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="countdown-number-wrapper relative z-10">
+                                <span class="countdown-number font-heading text-2xl md:text-5xl text-white leading-none block text-center font-bold ${changed && !isFirstLoad ? 'countdown-flip' : ''}">
+                                    ${displayValue}
+                                </span>
+                            </div>
+                            <div class="absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        </div>
+                        <span class="text-gray-400 text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase transition-colors group-hover:text-primary/70">${unit.label}</span>
                     </div>
-                    <span class="text-gray-500 text-[8px] md:text-[10px] font-bold tracking-[0.2em] uppercase">${unit.label}</span>
-                </div>
-            `).join('');
+                `;
+            }).join('');
+
+            isFirstLoad = false;
         }
 
-        setInterval(updateCountdown, 1000);
+        // Initial render with animation
         updateCountdown();
+        
+        // Update every second
+        setInterval(updateCountdown, 1000);
     }
 
     // New Gallery Logic (Class Toggling)
